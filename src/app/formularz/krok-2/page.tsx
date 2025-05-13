@@ -16,7 +16,7 @@ import {
 import { InfoTooltip } from "@/components/form/InfoTooltip";
 
 export default function Step2Page() {
-  const { formData, updateFormData, validateCurrentStep } = useFormContext();
+  const { formData, updateFormData } = useFormContext();
 
   const handleLegalBasisChange = (value: string) => {
     updateFormData({ legalBasis: value });

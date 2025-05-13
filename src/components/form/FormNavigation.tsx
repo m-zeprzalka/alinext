@@ -28,7 +28,7 @@ export function FormNavigation({
   prevHref,
   isSubmit = false,
 }: FormNavigationProps) {
-  const { currentStep, formData, validateCurrentStep, generateStepUrl } =
+  const { currentStep, validateCurrentStep, generateStepUrl } =
     useFormContext();
 
   // Determine if form is valid

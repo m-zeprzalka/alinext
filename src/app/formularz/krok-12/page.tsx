@@ -9,7 +9,8 @@ import { useState, useCallback } from "react";
 import Link from "next/link";
 
 export default function Step12Page() {
-  const { formData } = useFormContext();
+  // Używamy useFormContext() dla spójności, nawet jeśli nie korzystamy bezpośrednio z formData
+  const { } = useFormContext();
   const [submissionId] = useState(() => {
     // Generate a unique submission ID
     return `ALI-${Date.now().toString(36).toUpperCase()}-${Math.random()

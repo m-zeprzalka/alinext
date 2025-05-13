@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { redirect } from "next/navigation";
 
 export default function Step9Page() {
-  const { formData, currentStep } = useFormContext();
+  const { formData } = useFormContext();
 
   // Redirect to the appropriate variant based on the selected path
   useEffect(() => {

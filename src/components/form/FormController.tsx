@@ -2,14 +2,14 @@
 
 import { useEffect } from "react";
 import { useFormContext } from "@/context/FormContext";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 /**
  * Komponent FormController do zarządzania stanami kroków
  * Umieść ten komponent na każdej stronie formularza
  */
 export function FormController() {
-  const { formData, goToStep } = useFormContext();
+  const { goToStep } = useFormContext();
   const pathname = usePathname();
 
   // Znajdź numer kroku na podstawie URL
