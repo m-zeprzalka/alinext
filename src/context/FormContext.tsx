@@ -127,7 +127,8 @@ export const STEP_FLOW: StepFlow = {
   12: { prev: 11 },
 };
 
-export function FormProvider({ children }: { children: ReactNode }) {  const [formData, setFormData] = useState<FormData>({});
+export function FormProvider({ children }: { children: ReactNode }) {
+  const [formData, setFormData] = useState<FormData>({});
   const [currentStep, setCurrentStep] = useState(1);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isLoading] = useState(false);

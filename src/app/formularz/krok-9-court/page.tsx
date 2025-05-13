@@ -63,9 +63,10 @@ export default function Step9CourtPage() {
                     text="Twoja ocena pomoże nam lepiej zrozumieć Twoją perspektywę dotyczącą proponowanej kwoty alimentów."
                     wide
                   />
-                </Label>                <div className="text-sm text-neutral-600 mb-2">
-                  Oceń w skali 1–5, gdzie 1 oznacza &ldquo;zupełnie nieadekwatny&rdquo;, a 5
-                  &ldquo;w pełni adekwatny&rdquo;
+                </Label>{" "}
+                <div className="text-sm text-neutral-600 mb-2">
+                  Oceń w skali 1–5, gdzie 1 oznacza &ldquo;zupełnie
+                  nieadekwatny&rdquo;, a 5 &ldquo;w pełni adekwatny&rdquo;
                 </div>{" "}
                 <div className="relative py-5">
                   {useMemo(
