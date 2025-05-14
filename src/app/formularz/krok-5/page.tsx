@@ -1,5 +1,20 @@
 "use client";
 
+// Define ChildData interface to match FormContext definition
+interface ChildData {
+  name?: string;
+  age?: number;
+  gender?: string;
+  specialNeeds?: boolean;
+  specialNeedsDesc?: string;
+  birthDate?: string;
+  education?: string;
+  healthNeeds?: string;
+  activities?: string;
+  otherNeeds?: string;
+  [key: string]: unknown;
+}
+
 import { Card, CardContent } from "@/components/ui/card";
 import { FormLayout } from "@/components/form/FormLayout";
 import { useFormContext } from "@/context/FormContext";
@@ -26,10 +41,10 @@ const ChildForm = memo(
     onChange,
   }: {
     index: number;
-    childData: any;
-    onChange: (index: number, data: any) => void;
+    childData: ChildData;
+    onChange: (index: number, data: ChildData) => void;
   }) => {
-    const handleChange = (field: string, value: any) => {
+    const handleChange = (field: string, value: unknown) => {
       const updatedData = { ...childData, [field]: value };
       onChange(index, updatedData);
     };
@@ -138,11 +153,10 @@ export default function Step5Page() {
   const [childrenCount, setChildrenCount] = useState<number>(
     formData.childrenCount || 1
   );
-  const [childrenData, setChildrenData] = useState<any[]>(
+  const [childrenData, setChildrenData] = useState<ChildData[]>(
     formData.children || [{}]
   );
   const [isFormValid, setIsFormValid] = useState(false);
-
   // Update children forms when count changes - tylko raz przy zmianie liczby dzieci
   useEffect(() => {
     if (childrenCount > childrenData.length) {
@@ -156,7 +170,7 @@ export default function Step5Page() {
       // Remove excess child forms
       setChildrenData(childrenData.slice(0, childrenCount));
     }
-  }, [childrenCount, childrenData.length]); // zmieniono by używać tylko length zamiast całego obiektu
+  }, [childrenCount, childrenData, childrenData.length]); // Include childrenData in dependencies
 
   // Save form data - wykonywane rzadziej dzięki useCallback
   const updateFormDataCallback = useCallback(() => {
@@ -187,13 +201,16 @@ export default function Step5Page() {
     }
   };
 
-  const handleChildDataChange = useCallback((index: number, data: any) => {
-    setChildrenData((prev) => {
-      const newChildrenData = [...prev];
-      newChildrenData[index] = data;
-      return newChildrenData;
-    });
-  }, []);
+  const handleChildDataChange = useCallback(
+    (index: number, data: ChildData) => {
+      setChildrenData((prev) => {
+        const newChildrenData = [...prev];
+        newChildrenData[index] = data;
+        return newChildrenData;
+      });
+    },
+    []
+  );
 
   return (
     <FormLayout title="Informacje o dzieciach">

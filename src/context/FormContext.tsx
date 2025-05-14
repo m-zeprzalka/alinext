@@ -59,13 +59,17 @@ export interface FormData {
     parent2?: number;
     noInfoParent2?: boolean;
   };
-
   // Step 8-9: Specific to chosen path
   courtSpecific?: {
     adequacyRating?: number;
     caseNumber?: string;
     caseDetails?: string;
   };
+  courtCase?: {
+    adequacyRating?: number;
+    [key: string]: any;
+  };
+  proposedAmount?: number;
   otherSpecific?: {
     agreement?: string;
   };
