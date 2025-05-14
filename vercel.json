@@ -3,7 +3,6 @@
   "buildCommand": "npm run vercel-build",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "ignoreCommand": "echo 'Ignoring ESLint errors'",
   "env": {
     "DISABLE_ESLINT_PLUGIN": "true"
   }
