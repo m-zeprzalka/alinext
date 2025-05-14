@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "DISABLE_ESLINT_PLUGIN=true next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "DISABLE_ESLINT_PLUGIN=true next build"
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

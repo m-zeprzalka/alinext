@@ -4,9 +4,6 @@
   "installCommand": "npm install",
   "framework": "nextjs",
   "ignoreCommand": "echo 'Ignoring ESLint errors'",
-  "buildOptions": {
-    "autoLintFix": true
-  },
   "env": {
     "DISABLE_ESLINT_PLUGIN": "true"
   }
